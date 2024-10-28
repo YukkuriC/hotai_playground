@@ -1,6 +1,8 @@
 package vazkii.botania.common.block.flower.generating;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.function.Function;
 
@@ -35,6 +37,11 @@ public class DandelifeonBlockEntity extends GeneratingFlowerBlockEntity {
     }
 
     public static Function<Integer, Boolean> ruleKeep, ruleNew;
+
+    public static Function<Integer, Boolean> GenRule(Integer... data) {
+        HashSet<Integer> mapped = new HashSet<>(Arrays.asList(data));
+        return mapped::contains;
+    }
 
     static {
         ruleKeep = (Integer adj) -> {
