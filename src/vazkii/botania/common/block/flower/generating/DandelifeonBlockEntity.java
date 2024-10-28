@@ -2,6 +2,7 @@ package vazkii.botania.common.block.flower.generating;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -33,6 +34,17 @@ public class DandelifeonBlockEntity extends GeneratingFlowerBlockEntity {
         super(BotaniaFlowerBlocks.DANDELIFEON, pos, state);
     }
 
+    public static Function<Integer, Boolean> ruleKeep, ruleNew;
+
+    static {
+        ruleKeep = (Integer adj) -> {
+            return adj >= 1 && adj <= 5;
+        };
+        ruleNew = (Integer adj) -> {
+            return adj == 3;
+        };
+    }
+
     public int getRange() {
         return this.radius;
     }
@@ -51,9 +63,9 @@ public class DandelifeonBlockEntity extends GeneratingFlowerBlockEntity {
             for (int j = 0; j < table.diameter; j++) {
                 int newLife, oldLife = table.at(i, j);
                 int adj = table.getAdjCells(i, j);
-                if (adj == 3 && oldLife == -1) {
+                if (oldLife == -1 && ruleNew.apply(adj)) {
                     newLife = table.getSpawnCellGeneration(i, j);
-                } else if ((adj == 2 || adj == 3) && Cell.isLive(oldLife)) {
+                } else if (Cell.isLive(oldLife) && ruleKeep.apply(adj)) {
                     newLife = oldLife + 1;
                 } else {
                     newLife = -1;
