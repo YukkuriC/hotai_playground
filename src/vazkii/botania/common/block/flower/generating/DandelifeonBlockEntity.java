@@ -47,7 +47,6 @@ public class DandelifeonBlockEntity extends GeneratingFlowerBlockEntity {
     private void runSimulation() {
         CellTable table = new CellTable(this.radius, this);
         List<LifeUpdate> changes = new ArrayList<>();
-        boolean wipe = false;
         for (int i = 0; i < table.diameter; i++) {
             for (int j = 0; j < table.diameter; j++) {
                 int newLife, oldLife = table.at(i, j);
@@ -68,7 +67,6 @@ public class DandelifeonBlockEntity extends GeneratingFlowerBlockEntity {
                     } else {
                         oldLife = newLife;
                         newLife = -2;
-                        wipe = true;
                     }
                 if (newLife != oldLife)
                     changes.add(new LifeUpdate(i, j, newLife, oldLife));
@@ -77,8 +75,6 @@ public class DandelifeonBlockEntity extends GeneratingFlowerBlockEntity {
         for (LifeUpdate change : changes) {
             BlockPos pos_ = table.center.m_7918_(-this.radius + change.x(), 0, -this.radius + change.z());
             int newLife = change.newLife();
-            if (newLife != -2 && wipe)
-                newLife = -1;
             setBlockForGeneration(pos_, Math.min(newLife, 100), change.oldLife());
         }
     }
