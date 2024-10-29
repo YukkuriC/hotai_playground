@@ -89,5 +89,14 @@
       </library>
     </orderEntry>
     <orderEntry type="library" exported="" name="KotlinJavaRuntime" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://C:/Minecraft/.minecraft/libraries/net/minecraftforge/eventbus/5.0.3/eventbus-5.0.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
