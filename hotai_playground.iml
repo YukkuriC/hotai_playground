@@ -1,11 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+  <component name="FacetManager">
+    <facet type="minecraft" name="Minecraft">
+      <configuration>
+        <autoDetectTypes>
+          <platformType>MCP</platformType>
+        </autoDetectTypes>
+        <projectReimportVersion>1</projectReimportVersion>
+      </configuration>
+    </facet>
+  </component>
+  <component name="McpModuleSettings">
+    <option name="srgType" value="SRG" />
+  </component>
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/out/production/hotai_playground" />
+    <output-test url="file://$MODULE_DIR$/out/test/hotai_playground" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://C:/Minecraft/.minecraft/libraries/net/minecraft/client/1.19.2-20220805.130853/client-1.19.2-20220805.130853-srg.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://C:/Minecraft/.minecraft/libraries/net/minecraftforge/forge/1.19.2-43.4.4/forge-1.19.2-43.4.4-universal.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://C:/Minecraft/.minecraft/libraries/it/unimi/dsi/fastutil/8.5.6/fastutil-8.5.6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
