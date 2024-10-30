@@ -45,15 +45,6 @@ public class KubeJSContext extends Context {
         KubeJSPlugins.addSidedBindings(bindingsEvent);
     }
 
-    @Override
-    public boolean visibleToScripts(String fullClassName, ClassVisibilityContext type) {
-        if (type == ClassVisibilityContext.CLASS_IN_PACKAGE || type == ClassVisibilityContext.ARGUMENT) {
-            return kjsFactory.manager.isClassAllowed(fullClassName);
-        }
-
-        return true;
-    }
-
     public ScriptType getType() {
         return kjsFactory.manager.scriptType;
     }
@@ -64,19 +55,6 @@ public class KubeJSContext extends Context {
 
     public RegistryAccessContainer getRegistries() {
         return kjsFactory.manager.getRegistries();
-    }
-
-    @Override
-    public Scriptable wrapAsJavaObject(Scriptable scope, Object javaObject, TypeInfo target) {
-        if (javaObject instanceof AccessibleObject) {
-            getConsole().error("Reflection access denied");
-            return Undefined.SCRIPTABLE_INSTANCE;
-        } else if (javaObject instanceof ClassLoader) {
-            getConsole().error("ClassLoader access denied");
-            return Undefined.SCRIPTABLE_INSTANCE;
-        }
-
-        return super.wrapAsJavaObject(scope, javaObject, target);
     }
 
     @Override
