@@ -1,12 +1,6 @@
 package dev.latvian.mods.kubejs.plugin;
 
 import dev.latvian.mods.kubejs.script.ScriptType;
-import it.unimi.dsi.fastutil.objects.Object2ByteOpenHashMap;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 public class ClassFilter {
     public final ScriptType scriptType;
